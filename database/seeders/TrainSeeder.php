@@ -16,15 +16,16 @@ class TrainSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $train = new Train();
-            $train->company = $faker->words();
+            $train->company = $faker->word();
             $train->departure_station = $faker->city();
             $train->arrival_station = $faker->city();
             $train->departure_hours = $faker->time();
             $train->arrival_hours = $faker->time();
             $train->train_code = $faker->bothify('??-#####');
-            $train->number_of_carriages =  $faker->randomDigit();
+            $train->number_of_carriages =  $faker->randomDigitNotNull();
             $train->in_time =  $faker->boolean();
             $train->deleted =  $faker->boolean();
+
             $train->save();
         }
     }
